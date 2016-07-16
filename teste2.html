@@ -1,0 +1,27 @@
+
+<meta charset = "utf-8">
+<script>
+	var pulalinha = function(){
+	document.write("<br>");
+	}
+	var mostra = function(frase){
+		document.write(frase);
+		pulalinha();
+	}
+
+	var calculaPontos = function(vitorias, empates){
+		return((vitorias *3) + empates);
+	}
+
+	var vitorias = parceInt(pormpt("Quantas vitorias o CDC teve no campeonato até agora?"));
+	var empates = parceInt(prompt("Quantos empates o CDC teve no camponato até agora?"));
+
+	calculaPontos (vitorias, empates);
+
+	if (calculaPontos > 23){
+		mostra("seu time entas acima da taxa de eliminação!");
+	}else{ 
+		mostra("seu time esta na fache taria de eliminação");
+	}
+
+</script>
