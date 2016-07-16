@@ -1,0 +1,28 @@
+
+<meta charset="utf-8">
+<script>
+	var pulalinha = function () {
+		document.write("<br>");
+	}
+	var mostra = function (frase){
+		document.write(frase);
+		pulalinha();
+	}
+	var vitorias = parseInt(prompt("Quantos jogos o CDC futebol club venceu?"));
+	var empates = parseInt(prompt("quantos jogos o CDC futebol club empatou?"));
+
+	var pontos = (vitorias * 3) + empates;
+	mostra("nosso time tem "  + pontos + " pontos!");
+
+	if(pontos > 23){
+		mostra("Nosso time está indo MELHOR que livros velhos!");
+	}
+	if(pontos < 23){
+		mostra("Nosso time está indo PIOR que livros velhos!");
+	}
+	if(pontos == 23){
+		mostra("Nosso time está EMPATADO com livros velhos!");
+	}
+
+
+</script>
