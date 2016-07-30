@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<input type="text" id="numero">
+<input type="submit" id="chutes6" value="Faças seus chutes!"></br></br>
+<input type="submit" id="compare" value="Click aqui para comparar os resultados.">
+
+<script >
+	var numeros = [];
+	for (var i = 0; i<6 ;i++){
+		var numeroPensado =Math.round(Math.random()*60);
+		numeros.push(numeroPensado);
+	} 
+
+		var chutes = []
+
+		var qtd = 0
+
+	var adicionarchutes = function(){
+		var chutes6 = document.getElementById("numero").value;
+		if (qtd < 6){
+			chutes.push(chutes6);
+			document.getElementById("numero").value = "";
+			} else {
+				alert("Você já fez todos seus chutes");
+			}
+			console.log(chutes);
+		qtd++;
+	};
+
+	var botao = document.getElementById("chutes6");
+	botao.onclick = adicionarchutes;
+
+	var mostrarResultados = function(){
+		document.write("Os números sorteados foram " + numeros + 
+			"</br>");
+		document.write("Os números que você chutou foram " + chutes);
+	};
+
+	var botaoComparar = document.getElementById("compare");
+	botaoComparar.onclick = mostrarResultados;
+	
+
+</script>
