@@ -1,0 +1,140 @@
+<<<<<<< HEAD
+<meta charset="utf-8">
+<canvas id="tela" width="600" height="400"></canvas>
+<script>
+
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+
+var fundo = function(){
+	c.fillStyle="gray";
+	c.fillRect(0, 0, 600, 400);
+};
+
+var circulo = function(x, y, raio){
+	c.beginPath();
+	c.arc(x, y, raio, 0, 2*Math.PI);
+	c.fill();
+};
+
+var cor = function (valor){
+	c.fillStyle = valor;
+};
+
+var desenhaAlvo = function(x, y) {
+    var raio = 40;
+    cor("white");
+    circulo(x, y, raio);
+    cor("red");
+    circulo(x, y, raio-10);
+    cor("white");
+    circulo(x, y, raio-20);
+    cor("red");
+    circulo(x, y, raio-30);
+};
+
+var limpa = function() {
+	c.clearRect (0,0,600, 400);
+};
+
+var sorteiaX = function(){
+	var numeroSorteado = Math.round(Math.random()*600);
+	return numeroSorteado;
+};
+
+var sorteiaY = function(){
+	var numeroSorteado = Math.round(Math.random()*400);
+	return numeroSorteado;
+};
+
+var alvoX;
+var alvoY;
+
+var desenha = function() {
+  limpa();
+  fundo();
+  alvoX = sorteiaX();
+  alvoY = sorteiaY();
+  desenhaAlvo(alvoX, alvoY);
+};
+
+setInterval(desenha, 1000);
+
+var validaX = function() {
+		if(x >=  alvoX - 40 && x<= alvoX + 40){
+			return true;
+		}
+		return false;
+	};
+
+	var validaY = function(){
+		if(y >= alvoY - 40 && y <= alvoY + 40 ){
+			return true;
+		}
+		return false;
+	};
+
+var x;
+var y;
+
+tela.onclick = function(evento) {
+    x = evento.pageX - tela.offsetLeft;
+    y = evento.pageY - tela.offsetTop;
+    faz();
+};
+
+var faz = function(){
+		
+	var acertouX = validaX();
+	var acertouY = validaY();
+	
+	var acertou = acertouX && acertouY;
+	
+	if(acertou == true){
+		alert("Você acertou!!");
+	};
+};
+=======
+<meta charset="UTF-8">
+<input type="text" id="numero">
+<input type="submit" id="chutes6" value="Faças seus chutes!"></br></br>
+<input type="submit" id="compare" value="Click aqui para comparar os resultados.">
+
+<script >
+	var numeros = [];
+	for (var i = 0; i<6 ;i++){
+		var numeroPensado =Math.round(Math.random()*60);
+		numeros.push(numeroPensado);
+	} 
+
+		var chutes = []
+
+		var qtd = 0
+
+	var adicionarchutes = function(){
+		var chutes6 = document.getElementById("numero").value;
+		if (qtd < 6){
+			chutes.push(chutes6);
+			document.getElementById("numero").value = "";
+			} else {
+				alert("Você já fez todos seus chutes");
+			}
+			console.log(chutes);
+		qtd++;
+	};
+
+	var botao = document.getElementById("chutes6");
+	botao.onclick = adicionarchutes;
+
+	var mostrarResultados = function(){
+		document.write("Os números sorteados foram " + numeros + 
+			"</br>");
+		document.write("Os números que você chutou foram " + chutes);
+	};
+
+	var botaoComparar = document.getElementById("compare");
+	botaoComparar.onclick = mostrarResultados;
+	
+>>>>>>> 6587466227a5e67c85c275ac39fc0e7ac591e2d2
+
+</script>
